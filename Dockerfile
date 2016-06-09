@@ -1,8 +1,6 @@
 FROM centos:centos7
 MAINTAINER Sonatype <cloud-ops@sonatype.com>
 ENV SONATYPE_WORK /sonatype-work
-RUN mkdir -p ${SONATYPE_WORK}
-
 ENV NEXUS_VERSION 2.13.0-01
 ENV JAVA_HOME /opt/java
 ENV JAVA_VERSION_MAJOR 8
@@ -27,7 +25,7 @@ https://download.sonatype.com/nexus/oss/nexus-${NEXUS_VERSION}-bundle.tar.gz \
 && mv /tmp/nexus-${NEXUS_VERSION}/* /opt/sonatype/nexus/ \
 && rm -rf /tmp/nexus-${NEXUS_VERSION}
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
-VOLUME ${SONATYPE_WORK}
+#VOLUME ${SONATYPE_WORK}
 EXPOSE 8081
 WORKDIR /opt/sonatype/nexus
 USER nexus
