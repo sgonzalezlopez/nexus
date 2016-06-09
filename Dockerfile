@@ -1,6 +1,8 @@
 FROM centos:centos7
 MAINTAINER Sonatype <cloud-ops@sonatype.com>
 ENV SONATYPE_WORK /sonatype-work
+RUN mkdir -p ${SONATYPE_WORK}
+
 ENV NEXUS_VERSION 2.13.0-01
 ENV JAVA_HOME /opt/java
 ENV JAVA_VERSION_MAJOR 8
@@ -34,10 +36,9 @@ ENV MAX_HEAP 768m
 ENV MIN_HEAP 256m
 ENV JAVA_OPTS -server -Djava.net.preferIPv4Stack=true
 ENV LAUNCHER_CONF ./conf/jetty.xml ./conf/jetty-requestlog.xml
-CMD /bin/sh
-#CMD ${JAVA_HOME}/bin/java \
-#-Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
-#-Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
-#-cp 'conf/:lib/*' \
-#${JAVA_OPTS} \
-#org.sonatype.nexus.bootstrap.Launcher ${LAUNCHER_CONF}
+CMD ${JAVA_HOME}/bin/java \
+-Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
+-Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
+-cp 'conf/:lib/*' \
+${JAVA_OPTS} \
+org.sonatype.nexus.bootstrap.Launcher ${LAUNCHER_CONF}
