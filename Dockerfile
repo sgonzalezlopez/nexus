@@ -10,7 +10,7 @@ RUN yum install -y \
 curl tar createrepo \
 && yum clean all
 # install Oracle JRE
-RUN mkdir -p /sonatype-work
+RUN mkdir -p /sonatype-work && chmod 777 /sonatype-work
 RUN mkdir -p /opt \
 && curl --fail --silent --location --retry 3 \
 --header "Cookie: oraclelicense=accept-securebackup-cookie; " \
