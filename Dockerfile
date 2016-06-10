@@ -6,6 +6,7 @@ ENV JAVA_HOME /opt/java
 ENV JAVA_VERSION_MAJOR 8
 ENV JAVA_VERSION_MINOR 74
 ENV JAVA_VERSION_BUILD 02
+RUN yum clean all
 RUN yum install -y \
 curl tar createrepo \
 && yum clean all
