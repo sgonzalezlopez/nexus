@@ -39,5 +39,5 @@ CMD ${JAVA_HOME}/bin/java \
 -Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
 -Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
 -cp 'conf/:lib/*' \
-${JAVA_OPTS} -Dhttp.proxyHost=${proxyHost} -Dhttp.proxyPort=${proxyPort} -Dhttps.proxyHost=${proxyHost} -Dhttps.proxyPort=${proxyPort} \
+${JAVA_OPTS} -Dhttp.proxyHost=${PROXY-HOST} -Dhttp.proxyPort=${proxyPort} -Dhttps.proxyHost=${PROXY-HOST} -Dhttps.proxyPort=${proxyPort} \
 org.sonatype.nexus.bootstrap.Launcher ${LAUNCHER_CONF}
