@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM centos:centos
 MAINTAINER Sonatype <cloud-ops@sonatype.com>
 ENV SONATYPE_WORK /sonatype-work
 ENV NEXUS_VERSION 2.13.0-01
