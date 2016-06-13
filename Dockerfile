@@ -40,5 +40,5 @@ CMD ${JAVA_HOME}/bin/java \
 -Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
 -Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
 -cp 'conf/:lib/*' \
-${JAVA_OPTS} -Dhttp.proxyHost=${PROXY-HOST} -Dhttp.proxyPort=${proxyPort} -Dhttps.proxyHost=${PROXY-HOST} -Dhttps.proxyPort=${proxyPort} \
+${JAVA_OPTS} -Dhttp.proxyHost=default-http-proxy.pink.eu-central-1.aws.openpaas.axa-cloud.com -Dhttp.proxyPort=8888 -Dhttps.proxyHost=default-http-proxy.pink.eu-central-1.aws.openpaas.axa-cloud.com -Dhttps.proxyPort=8888 \
 org.sonatype.nexus.bootstrap.Launcher ${LAUNCHER_CONF}
